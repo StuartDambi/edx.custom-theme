@@ -18,7 +18,7 @@ import json
 
 <%block name="pagetitle">${_("Dashboard")}</%block>
 <%block name="bodyclass">view-dashboard is-authenticated</%block>
-<%block name="nav_skip"></%block>
+<%block name="nav_skip">#my-courses</%block>
 
 <%block name="header_extras">
 % for template_name in ["donation"]:
@@ -74,33 +74,11 @@ import json
     %endif
 </div>
 
-<section class="dashboard" id="dashboard-main">
-
-  % if settings.FEATURES.get('ENABLE_DASHBOARD_SEARCH'):
-    <div class="row">
-      <div id="dashboard-search-bar" class="search-bar dashboard-search-bar col-md-12" role="search" aria-label="Dashboard">
-        <form>
-          <label for="dashboard-search-input">${_('Search Your Courses')}</label>
-          <div class="search-field-wrapper">
-            <input id="dashboard-search-input" type="text" class="search-field"/>
-            <button type="submit" class="search-button" aria-label="${_('Search')}">
-              <i class="icon fa fa-search" aria-hidden="true"></i>
-            </button>
-            <button type="button" class="cancel-button" aria-label="${_('Clear search')}">
-              <i class="icon fa fa-remove" aria-hidden="true"></i>
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-  % endif
-
-  <div class="row">
-  <section class="my-courses col-md-8" id="my-courses" role="main" aria-label="Content">
+<section class="container dashboard" id="dashboard-main">
+  <section class="my-courses" id="my-courses" role="main" aria-label="Content">
     <header class="wrapper-header-courses">
       <h2 class="header-courses">${_("My Courses")}</h2>
     </header>
-
 
 
     % if len(course_enrollments) > 0:
@@ -153,6 +131,22 @@ import json
     % endif
   </section>
 
+  % if settings.FEATURES.get('ENABLE_DASHBOARD_SEARCH'):
+    <div id="dashboard-search-bar" class="search-bar dashboard-search-bar" role="search" aria-label="Dashboard">
+      <form>
+        <label for="dashboard-search-input">${_('Search Your Courses')}</label>
+        <div class="search-field-wrapper">
+          <input id="dashboard-search-input" type="text" class="search-field"/>
+          <button type="submit" class="search-button" aria-label="${_('Search')}">
+            <i class="icon fa fa-search" aria-hidden="true"></i>
+          </button>
+          <button type="button" class="cancel-button" aria-label="${_('Clear search')}">
+            <i class="icon fa fa-remove" aria-hidden="true"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+  % endif
 
   % if settings.FEATURES.get('ENABLE_DASHBOARD_SEARCH'):
     <section id="dashboard-search-results" class="search-results dashboard-search-results"></section>
@@ -186,7 +180,6 @@ import json
       </ul>
     </section>
   </section>
-  </div>
 </section>
 
 <section id="email-settings-modal" class="modal" aria-hidden="true">
