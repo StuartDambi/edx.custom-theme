@@ -393,6 +393,16 @@ input.search-form:hover {
   position: absolute;
 }
 
+.item {
+  background-image: url('../images/slider/bg1.jpg');
+}
+
+.items1 {
+  background-image: url('../images/slider/bg2.jpg');
+}
+.items2 {
+  background-image: url('../images/slider/bg3.jpg');
+}
 
 #main-slider .carousel .item {
   background-position: 50%;
