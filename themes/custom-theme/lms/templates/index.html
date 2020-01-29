@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <%page expression_filter="h"/>
 <%inherit file="main.html" />
 <%namespace name='static' file='static_content.html'/>
@@ -8,7 +9,6 @@ from django.core.urlresolvers import reverse
 from openedx.core.djangolib.markup import HTML, Text
 %>
 
-{% load staticfiles %}
 <link rel='stylesheet' href="{% static 'css/main.css' %}">
 
 <main id="main" aria-label="Content" tabindex="-1">
