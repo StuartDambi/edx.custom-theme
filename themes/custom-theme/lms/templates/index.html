@@ -7,11 +7,15 @@ from django.core.urlresolvers import reverse
 
 from openedx.core.djangolib.markup import HTML, Text
 %>
+<style>
+  .home {
+    background-color: blue;
+  }
+</style>
 
-
-<main id="main" aria-label="Content" tabindex="-1">
+<main id="main" aria-label="Content" tabindex="-1" style="background: rgba(0, 0, 0, 0.9) !important; color: white;">
     <section class="home">
-      <header>
+      <header >
         <div>
           <img src="" alt="logo">
           <div>
@@ -28,7 +32,22 @@ from openedx.core.djangolib.markup import HTML, Text
         <div class="container grid-3">
           <div>
             <i class="fa fa-youtube fa-3x"></i>
+            <h3>Courses</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. At, mollitia.</p>
           </div>
+
+          <div>
+            <i class="fa fa-chalkboard fa-3x"></i>
+            <h3>Courses</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. At, mollitia.</p>
+          </div>
+
+          <div>
+            <i class="fa fa-train fa-3x"></i>
+            <h3>Courses</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. At, mollitia.</p>
+          </div>
+
         </div>
       </section>
 
