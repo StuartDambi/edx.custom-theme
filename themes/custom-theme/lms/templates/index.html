@@ -12,10 +12,25 @@ from openedx.core.djangolib.markup import HTML, Text
 <main id="main" aria-label="Content" tabindex="-1">
     <section class="home">
       <header>
-        <section style="overflow: hidden; background-color: purple; height: 300px;">
-          <h3>Welcome to Witsmind</h3>
-        </section>
+        <div>
+          <img src="" alt="logo">
+          <div>
+            Welcome to Witsmind Elearn
+          </div>
+          <div>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit, nesciunt!
+          </div>
+        </div>
       </header>
+
+      <!-- Services -->
+      <section class="services">
+        <div class="container grid-3">
+          <div>
+            <i class="fa fa-youtube fa-3x"></i>
+          </div>
+        </div>
+      </section>
 
       <%include file="${courses_list}" />
 
