@@ -30,6 +30,10 @@ from openedx.core.djangolib.markup import HTML, Text
     filter: blur(0px);
     -webkit-filter: blur(0px);
   }
+  .showcase:hover .content {
+    filter: blur(2px);
+    -webkit-filter: blur(2px);
+  }
   .content {
     position: absolute;
     z-index: 1;
@@ -57,6 +61,18 @@ from openedx.core.djangolib.markup import HTML, Text
   .home {
     display: inline;
   }
+
+  .container {
+    max-width: 960px;
+    margin: auto;
+    overflow: hidden;
+    padding: 4rem 1rem;
+  }
+  .grid-3 {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 </style>
 
 <main id="main" aria-label="Content" tabindex="-1" class="body">
@@ -65,7 +81,7 @@ from openedx.core.djangolib.markup import HTML, Text
         <div class="content">
           <img src="https://logopond.com/logos/829300062c8e8d75f616a9bc2476d7e0.png" alt="logo">
           <div class="title">
-            The Witsmind Elearn
+            The Witsmind Elearn.
           </div>
           <div class="text">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit, nesciunt!
