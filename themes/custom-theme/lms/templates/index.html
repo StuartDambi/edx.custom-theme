@@ -19,6 +19,23 @@ from openedx.core.djangolib.markup import HTML, Text
     display: block;
     filter: blur(10px);
     -webkit-filter: blur(10px);
+    transition: all 1000ms;
+  }
+  .showcase:hover::after {
+    filter: blur(0px);
+    -webkit-filter: blur(0px);
+  }
+  .content {
+
+  }
+  .content .logo {
+
+  }
+  .content .title {
+
+  }
+  .content .text {
+
   }
 </style>
 
@@ -26,11 +43,11 @@ from openedx.core.djangolib.markup import HTML, Text
     <section class="home">
       <header class="showcase">
         <div class="content">
-          <img src="" alt="logo">
-          <div>
+          <img src="https://logopond.com/logos/829300062c8e8d75f616a9bc2476d7e0.png" alt="logo">
+          <div class="title">
             Welcome to Witsmind Elearn
           </div>
-          <div>
+          <div class="text">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit, nesciunt!
           </div>
         </div>
