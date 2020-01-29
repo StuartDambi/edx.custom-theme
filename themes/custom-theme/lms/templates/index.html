@@ -13,9 +13,9 @@ from openedx.core.djangolib.markup import HTML, Text
       <header>
         <div class="outer-wrapper" style="background-image: url('https://eprocessdevelopment.com/wp-content/uploads/2015/09/ePD-Banner.jpg') !important;">
           <div class="title">
-            
+            <div class="heading-group">
               <h1>Site is Under Renovation Please wait!</h1>
-            
+            </div>
             % if settings.FEATURES.get('ENABLE_COURSE_DISCOVERY'):
               <div class="course-search">
                 <form method="get" action="/courses">
@@ -41,7 +41,7 @@ from openedx.core.djangolib.markup import HTML, Text
         </div>
 
       </header>
-      <%include file="${courses_list}" />
+      <!-- <%include file="${courses_list}" /> -->
 
     </section>
 </main>
