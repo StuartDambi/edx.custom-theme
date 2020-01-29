@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% load static %}
 <%page expression_filter="h"/>
 <%inherit file="main.html" />
 <%namespace name='static' file='static_content.html'/>
@@ -14,6 +14,7 @@ from openedx.core.djangolib.markup import HTML, Text
 <main id="main" aria-label="Content" tabindex="-1">
     <section class="home">
       <h1 class="landingStuart">Hello Uganda, We are here!</h1>
+
       <%include file="${courses_list}" />
 
     </section>
