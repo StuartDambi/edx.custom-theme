@@ -8,13 +8,14 @@ from django.core.urlresolvers import reverse
 from openedx.core.djangolib.markup import HTML, Text
 %>
 
-<link rel='stylesheet' href="{% static 'css/main.css' %}">
 
 <main id="main" aria-label="Content" tabindex="-1">
     <section class="home">
-      <section style="overflow: hidden; background-color: purple; height: 300px;">
-        <h3>Welcome to Witsmind</h3>
-      </section>
+      <header>
+        <section style="overflow: hidden; background-color: purple; height: 300px;">
+          <h3>Welcome to Witsmind</h3>
+        </section>
+      </header>
 
       <%include file="${courses_list}" />
 
