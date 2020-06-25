@@ -8,83 +8,341 @@ from django.urls import reverse
 from openedx.core.djangolib.markup import HTML, Text
 %>
 <head>
-  <!-- McDaniel Oct-2018: add the Bootstrap library, unless it's already included from webpack -->
-  % if not uses_bootstrap:
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  % endif
+  <!-- Add custom styling CSS to the Platform -->
+  <link rel="stylesheet" type="text/css" href="https://dl.dropboxusercontent.com/s/6gadgt7rp8is1zu/settings.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="https://dl.dropboxusercontent.com/s/snf27uuden0pcfr/fonts.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="https://dl.dropboxusercontent.com/s/nmth0458i4rx0wp/menu.css">
+  <link rel="stylesheet" type="text/css" href="https://dl.dropboxusercontent.com/s/0bcpp2woenzawmd/carousel.css" />
+  <link rel="stylesheet" type="text/css" href="https://dl.dropboxusercontent.com/s/pcy1ulutlaxuieu/style.css" />
 
 </head>
-<main id="main" aria-label="Content" tabindex="-1">
-    <section class="home">
-      <header>
-        <!-- McDaniel Oct-2018: Ok, lets Bootstrap this page! -->
-        <div style="margin-bottom: 25px;" class="alert alert-success alert-dismissible fade show" role="alert">
-          <h4 class="alert-heading">Well done!</h4>
-          <p>You successfully added Bootstrap 4.0 to your homepage without breaking the LMS. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
-          <hr>
-          <p class="mb-0">Don't forget to comment on Lawrence's blog post: <a href="https://blog.lawrencemcdaniel.com/" target="_blank">blog.lawrencemcdaniel.com/</a>.</p>
-        </div>
 
-        <div class="outer-wrapper">
-          <div class="title">
-            <div class="heading-group">
-              % if homepage_overlay_html:
-                ${homepage_overlay_html | n, decode.utf8}
-              % else:
-                <%include file="index_overlay.html" />
-              % endif
-            </div>
-            % if settings.FEATURES.get('ENABLE_COURSE_DISCOVERY'):
-              <div class="course-search">
-                <form method="get" action="/courses">
-                  <label><span class="sr">${_("Search for a course")}</span>
-                    <input class="search-input" name="search_query" type="text" placeholder="${_("Search for a course")}"></input>
-                  </label>
-                  <button class="search-button" type="submit">
-                    <span class="icon fa fa-search" aria-hidden="true"></span><span class="sr">${_("Search")}</span>
-                  </button>
-                </form>
-              </div>
-            % endif
+<!--<%include file="${courses_list}" />-->
 
-          </div>
-
-          <%include file="index_promo_video.html" />
-        </div>
-
-      </header>
-      <%include file="${courses_list}" />
-
-    </section>
-</main>
-
-% if show_homepage_promo_video:
-  <section id="video-modal" class="modal home-page-video-modal video-modal">
-    <div class="inner-wrapper">
-      <iframe title="YouTube Video" width="640" height="360" src="//www.youtube.com/embed/${homepage_promo_video_youtube_id}?showinfo=0" frameborder="0" allowfullscreen></iframe>
+<div id="loader">
+    <div class="loader-container">
+      <img src="images/site.gif" alt="" class="loader-site">
     </div>
-  </section>
-% endif
+  </div>
+  <div id="wrapper">
+    <div class="row-offcanvas row-offcanvas-left">
+      <div id="sidebar-fix" class="sidebar-offcanvas">
+        <div class="side-logo clearfix">
+          <a href="index-2.html">
+            <h2 style="padding-left: 20px; font-size: 25px !important;">Witslearn</h2>
+          </a>
+        </div>
+        <ul class="sidebar-nav clearfix">
+          <li class="active"><a href="index-2.html">Home</a></li>
+          <li><a href="course-grid.html">Courses</a></li>
+        </ul>
+        <div class="side-copyright">
+          <ul class="list-inline">
+            <li>
+              <a class="social" href="#"><i class="fa fa-facebook"></i></a>
+              <a class="social" href="#"><i class="fa fa-twitter"></i></a>
+              <a class="social" href="#"><i class="fa fa-google-plus"></i></a>
+              <a class="social" href="#"><i class="fa fa-linkedin"></i></a>
+            </li>
+          </ul>
+          <p>© 2020 Witsmind Company.<br> A <a href="#">Learning Series</a></p>
+        </div>
+      </div>
+      <div id="main">
+        <div class="visible-md visible-xs visible-sm mobile-menu">
+          <button type="button" class="btn btn-default btn-sm" data-toggle="offcanvas"><i
+              class="fa fa-bars"></i></button>
+        </div>
+        <section class="slider-section">
+          <div class="tp-banner-container">
+            <div class="tp-banner">
+              <ul>
+                <li data-transition="fade" data-slotamount="1" data-masterspeed="500"
+                  data-thumb="upload/slider_new_03.jpg" data-saveperformance="off" data-title="Slide">
+                  <img src="https://dl.dropbox.com/s/weq1inzbahd8t8m/xslider_new_03.jpg.pagespeed.ic.0dDeZb1yS7.jpg" alt="fullslide1"
+                    data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
+                  <div class="tp-caption slider_layer_05 text-center lft tp-resizeme" data-x="center" data-y="240"
+                    data-speed="1000" data-start="600" data-easing="Power3.easeInOut" data-splitin="none"
+                    data-splitout="none" data-elementdelay="0.1" data-endelementdelay="0.1" data-endspeed="1000"
+                    style="z-index: 9; max-width: auto; max-height: auto; white-space: nowrap;"><i
+                      class="fa fa-graduation-cap"></i>
+                  </div>
+                  <div class="tp-caption slider_layer_01 text-center lft tp-resizeme" data-x="center" data-y="350"
+                    data-speed="1000" data-start="600" data-easing="Power3.easeInOut" data-splitin="none"
+                    data-splitout="none" data-elementdelay="0.1" data-endelementdelay="0.1" data-endspeed="1000"
+                    style="z-index: 9; max-width: auto; max-height: auto; white-space: nowrap;">Learning Management
+                    System
+                  </div>
+                  <div class="tp-caption slider_layer_02 text-center lft tp-resizeme" data-x="center" data-y="460"
+                    data-speed="1000" data-start="800" data-easing="Power3.easeInOut" data-splitin="none"
+                    data-splitout="none" data-elementdelay="0.1" data-endelementdelay="0.1" data-endspeed="1000"
+                    style="z-index: 9; max-width: auto; max-height: auto; white-space: nowrap; color: white; font-size: 25px;">Welcome to
+                    Witslearn Learning Website<br> with tons of courses!
+                  </div>
+                  <div class="tp-caption text-center lft tp-resizeme" data-x="center" data-y="540" data-speed="1000"
+                    data-start="800" data-easing="Power3.easeInOut" data-splitin="none" data-splitout="none"
+                    data-elementdelay="0.1" data-endelementdelay="0.1" data-endspeed="1000"
+                    style="z-index: 9; max-width: auto; max-height: auto; white-space: nowrap;"> <a
+                      href="/course-login.html" class="btn btn-primary">Login</a> <a href="/course-login.html"
+                      class="btn btn-default">Register</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
 
-<%block name="js_extra">
-   <script type="text/javascript">
-      $(window).load(function() {
-         if(getParameterByName('next')) {
-              $('#login').trigger("click");
-         }
-      })
-   </script>
-</%block>
 
-% if show_signup_immediately is not UNDEFINED:
-  ## NOTE: This won't work in production, because anonymous views are cached, so it will
-  ## show either with or without this extra js for 3 minutes at a time.
-<script type="text/javascript">
-  $(window).load(function() {$('#signup_action').trigger("click");});
+        <section class="section darkskin fullscreen paralbackground parallax"
+          style="background-image:url(https://dl.dropbox.com/s/uibsxcsowcvu4fj/xparallax_01.jpg.pagespeed.ic.JPVsQrTu6o.jpg)" data-img-width="1627"
+          data-img-height="868" data-diff="100">
+          <div class="overlay"></div>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="section-title text-center">
+                  <h4>The Learning Process</h4>
+                  <p>Please follow the instructions below to get started</p>
+                </div>
+              </div>
+            </div>
+            <div class="row service-center">
+              <div class="col-md-4 col-sm-6">
+                <div class="feature-list">
+                  <i class="fa fa-key"></i>
+                  <p><strong>Create an Account</strong></p>
+                  <p>Contact the Adminstration to Institute adminstration and create a student account and proceed to start your
+                    lessons with Witslearn
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-4 col-sm-6">
+                <div class="feature-list">
+                  <i class="fa fa-shopping-cart"></i>
+                  <p><strong>Pay your Tuition</strong></p>
+                  <p>Make payments to the bank using any platform available (Mobile money, Bank) and then get clearance from the
+                    adminstration to get granted access to the platform
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-4 col-sm-6">
+                <div class="feature-list">
+                  <i class="fa fa-graduation-cap"></i>
+                  <p><strong>Start Learning</strong></p>
+                  <p>Search for your courses and enroll into them, and join other students to get started with the studies</p>
+                </div>
+              </div>
+            </div>
+            <div class="row button-wrapper">
+              <div class="col-md-12">
+                <div class="text-center">
+                  <a href="/course-login.html" class="btn btn-default">Create an Account</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        <section class="grey section">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="section-title text-center">
+                  <h4> Courses</h4>
+                  <p>Listed Below Our Most Popular Courses</p>
+                </div>
+              </div>
+            </div>
+            <div id="owl-featured" class="owl-custom">
+              <div class="owl-featured">
+                <div class="shop-item-list entry">
+                  <div class="">
+                    <img src="https://dl.dropbox.com/s/cwmxz5k4inxx357/xcourse_01.png.pagespeed.ic.XTOvCuUmZu.png" alt="">
+                    <div class="magnifier">
+                    </div>
+                  </div>
+                  <div class="shop-item-title clearfix">
+                    <h4><a href="course-single.html">Learn Web Design & Development</a></h4>
+                    <div class="shopmeta">
+                      <span class="pull-left">12 Student</span>
+                      <div class="rating pull-right">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="visible-buttons">
+                    <a title="Add to Cart" href="page-shop-cart.html"><span class="fa fa-cart-arrow-down"></span></a>
+                    <a title="Read More" href="course-single.html"><span class="fa fa-search"></span></a>
+                  </div>
+                </div>
+              </div>
+              <div class="owl-featured">
+                <div class="shop-item-list entry">
+                  <div class="">
+                    <img src="https://dl.dropbox.com/s/m1g0lsd1t8gcvpc/xcourse_02.png.pagespeed.ic.PL7Wu2UcSB.png" alt="">
+                    <div class="magnifier">
+                    </div>
+                  </div>
+                  <div class="shop-item-title clearfix">
+                    <h4><a href="course-single.html">Graphic Design & Logo Mockups Course</a></h4>
+                    <div class="shopmeta">
+                      <span class="pull-left">21 Student</span>
+                      <div class="rating pull-right">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="visible-buttons">
+                    <a title="Add to Cart" href="page-shop-cart.html"><span class="fa fa-cart-arrow-down"></span></a>
+                    <a title="Read More" href="course-single.html"><span class="fa fa-search"></span></a>
+                  </div>
+                </div>
+              </div>
+              <div class="owl-featured">
+                <div class="shop-item-list entry">
+                  <div class="">
+                    <img src="https://dl.dropbox.com/s/1h2755lmh4nnbya/xcourse_03.png.pagespeed.ic.8e1MyY5M7i.png" alt="">
+                    <div class="magnifier">
+                    </div>
+                  </div>
+                  <div class="shop-item-title clearfix">
+                    <h4><a href="course-single.html">Social Media Network & Marketing</a></h4>
+                    <div class="shopmeta">
+                      <span class="pull-left">98 Student</span>
+                      <div class="rating pull-right">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="visible-buttons">
+                    <a title="Add to Cart" href="page-shop-cart.html"><span class="fa fa-cart-arrow-down"></span></a>
+                    <a title="Read More" href="course-single.html"><span class="fa fa-search"></span></a>
+                  </div>
+                </div>
+              </div>
+              <div class="owl-featured">
+                <div class="shop-item-list entry">
+                  <div class="">
+                    <img src="https://dl.dropbox.com/s/kzceetgkwerxykt/xcourse_04.png.pagespeed.ic.2rIKmUwjA7.png" alt="">
+                    <div class="magnifier">
+                    </div>
+                  </div>
+                  <div class="shop-item-title clearfix">
+                    <h4><a href="course-single.html">WordPress Blogging, Tumblr and Blogger</a></h4>
+                    <div class="shopmeta">
+                      <span class="pull-left">98 Student</span>
+                      <div class="rating pull-right">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="visible-buttons">
+                    <a title="Add to Cart" href="page-shop-cart.html"><span class="fa fa-cart-arrow-down"></span></a>
+                    <a title="Read More" href="course-single.html"><span class="fa fa-search"></span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+
+
+
+        <section class="white section">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="section-title text-center">
+                  <h4>Why Choose Witslearn?</h4>
+                  <p>Listed Below Why Witslearn is the platform to use?</p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4 col-sm-6">
+                <div class="why-us text-right wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.3s">
+                  <i class="fa fa-html5 alignright"></i>
+                  <h4>Responsive Design</h4>
+                  <p>Integer non dapibus fermentum nibh volutpat, accumsan purus.</p>
+                </div>
+                <div class="why-us text-right wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.7s">
+                  <i class="fa fa-laptop alignright"></i>
+                  <h4>Various Learning content</h4>
+                  <p>Integer non dapibus fermentum nibh volutpat, accumsan purus.</p>
+                </div>
+                <div class="why-us text-right wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1.1s">
+                  <i class="fa fa-home alignright"></i>
+                  <h4>Group Discussions</h4>
+                  <p>Integer non dapibus fermentum nibh volutpat, accumsan purus.</p>
+                </div>
+              </div>
+              <div class="col-md-4 col-sm-6">
+                <div class="image-center wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                  <img src="https://dl.dropboxusercontent.com/s/6v09rl0rp3k71ct/1.1-01.png" alt="" class="img-responsive">
+                </div>
+              </div>
+              <div class="col-md-4 col-sm-6">
+                <div class="why-us text-left wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
+                  <i class="fa fa-clock-o alignleft"></i>
+                  <h4>Online Examinations</h4>
+                  <p>Integer non dapibus fermentum nibh volutpat, accumsan purus.</p>
+                </div>
+                <div class="why-us text-left wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.9s">
+                  <i class="fa fa-gears alignleft"></i>
+                  <h4>Learning Curves</h4>
+                  <p>Integer non dapibus fermentum nibh volutpat, accumsan purus.</p>
+                </div>
+                <div class="why-us text-left wow fadeInRight" data-wow-duration="1s" data-wow-delay="1.3s">
+                  <i class="fa fa-leaf alignleft"></i>
+                  <h4>Student Tracking</h4>
+                  <p>Integer non dapibus fermentum nibh volutpat, accumsan purus.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- Cut here -->
+
+
+      </div>>
+    </div>
+  </div>
+
+
+<script src="https://dl.dropbox.com/s/uj551hrccxwszvu/jquery.min.js"></script>
+<script src="https://dl.dropbox.com/s/091jfexpglo46bk/bootstrap.min.js"></script>
+<script>eval(mod_pagespeed_gFRwwUbyVc);</script>
+<script>eval(mod_pagespeed_rQwXk4AOUN);</script>
+<script>eval(mod_pagespeed_U0OPgGhapl);</script>
+<script src="https://dl.dropbox.com/s/tbp6ib42vrikt36/carousel.js"></script>
+<script>eval(mod_pagespeed_6Ja02QZq$f);</script>
+<script>eval(mod_pagespeed_AZ_gON44eP);</script>
+<script>eval(mod_pagespeed_KxQMf5X6rF);</script>
+<script src="https://dl.dropbox.com/s/lums9mi7qvqnq8d/jquery.theme.js"></script>
+<script src="https://dl.dropbox.com/s/8c9ep39et8u8pcn/jquery.revolution.js"></script>
+<script>jQuery(document).ready(function () { jQuery('.tp-banner').show().revolution({ dottedOverlay: "none", delay: 16000, startwidth: 1170, startheight: 820, hideThumbs: 200, thumbWidth: 100, thumbHeight: 50, thumbAmount: 5, navigationType: "none", navigationArrows: "solo", navigationStyle: "preview3", touchenabled: "on", onHoverStop: "on", swipe_velocity: 0.7, swipe_min_touches: 1, swipe_max_touches: 1, drag_block_vertical: false, parallax: "mouse", parallaxBgFreeze: "on", parallaxLevels: [10, 7, 4, 3, 2, 5, 4, 3, 2, 1], parallaxDisableOnMobile: "off", keyboardNavigation: "off", navigationHAlign: "center", navigationVAlign: "bottom", navigationHOffset: 0, navigationVOffset: 20, soloArrowLeftHalign: "left", soloArrowLeftValign: "center", soloArrowLeftHOffset: 20, soloArrowLeftVOffset: 0, soloArrowRightHalign: "right", soloArrowRightValign: "center", soloArrowRightHOffset: 20, soloArrowRightVOffset: 0, shadow: 0, fullWidth: "on", fullScreen: "off", spinner: "spinner4", stopLoop: "off", stopAfterLoops: -1, stopAtSlide: -1, shuffle: "off", autoHeight: "off", forceFullWidth: "off", hideThumbsOnMobile: "off", hideNavDelayOnMobile: 1500, hideBulletsOnMobile: "off", hideArrowsOnMobile: "off", hideThumbsUnderResolution: 0, hideSliderAtLimit: 0, hideCaptionAtLimit: 0, hideAllCaptionAtLilmit: 0, startWithSlide: 0, fullScreenOffsetContainer: "" }); });</script>
+<script
+  type="text/javascript">(function ($) { "use strict"; $('[data-toggle=offcanvas]').click(function () { $('.row-offcanvas').toggleClass('active'); }); })(jQuery);
 </script>
-% endif
-% if not uses_bootstrap:
-  <!-- McDaniel Oct-2018: add the Bootstrap javascript library, unless it's already included from webpack -->
-  ## xss-lint: disable=mako-invalid-js-filter
-  <script type="text/javascript" src="${static.url('common/js/vendor/bootstrap.bundle.js')}"></script>
-% endif

@@ -10,163 +10,120 @@
 <% icp_license_info = getattr(settings, 'ICP_LICENSE_INFO', {})%>
 <%namespace name='static' file='static_content.html'/>
 
-% if uses_bootstrap:
-  <div class="container-fluid wrapper-footer">
-    <footer>
-      <div class="row">
-        <div class="col-md-9">
-          <nav class="navbar site-nav navbar-expand-sm" aria-label="${_('About')}">
-            <ul class="navbar-nav">
-              % for item_num, link in enumerate(footer['navigation_links'], start=1):
-                <li class="nav-item">
-                  <a class="nav-link" href="${link['url']}">${link['title']}</a>
-                </li>
-              % endfor
-            </ul>
-          </nav>
-
-          <div class="wrapper-logo">
-            <p>
-              <a href="/">
-                ## The default logo is a placeholder.
-                ## You can either replace this link entirely or update
-                ## the FOOTER_ORGANIZATION_IMAGE in Django settings.
-                ## If you customize FOOTER_ORGANIZATION_IMAGE, then the image
-                ## can be included in the footer on other sites
-                ## (e.g. a blog or marketing front-end) to provide a consistent
-                ## user experience.  See the branding app for details.
-                <img alt="${_('organization logo')}" src="https://logopond.com/logos/829300062c8e8d75f616a9bc2476d7e0.png">
-              </a>
-            </p>
-          </div>
-
-          ## Site operators: Please do not remove this paragraph! This attributes back to edX and makes your acknowledgement of edX's trademarks clear.
-          <p class="copyright">${footer['copyright']}
-               % if icp_license_info.get('icp_license'):
-                ${u" | {text}".format(text=icp_license_info.get('text'))}
-                <a href="${icp_license_info.get('icp_license_link', '#')}">
-                    ${u" {icp}".format(icp=icp_license_info.get('icp_license'))}
-                </a>
-              % endif
-          </p>
-
-          <nav class="navbar legal-nav navbar-expand-sm" aria-label="${_('Legal')}">
-            <ul class="navbar-nav">
-              % for item_num, link in enumerate(footer['legal_links'], start=1):
-                <li class="nav-item">
-                  <a class="nav-link" href="${link['url']}">${link['title']}</a>
-                </li>
-              % endfor
-              <li class="nav-item">
-                <a class="nav-link" href="${footer['edx_org_link']['url']}">${footer['edx_org_link']['text']}</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-        <div class="col-md-3">
-          ## Please leave this link and use one of the logos provided
-          ## The OpenEdX link may be hidden when this view is served
-          ## through an API to partner sites (such as marketing sites or blogs),
-          ## which are not technically powered by Open edX.
-          % if not hide_openedx_link:
-            <div class="footer-about-openedx">
-              <p>
-                <a href="${footer['openedx_link']['url']}">
-                  <img src="${footer['openedx_link']['image']}" alt="${footer['openedx_link']['title']}" width="140" />
-                </a>
-              </p>
+  <footer class="dark footer section">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-3 col-md-6 col-xs-12">
+                <div class="widget">
+                  <div class="widget-title">
+                    <h4>About Witslearn</h4>
+                    <hr>
+                  </div>
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                    industry's standard dummy text ever since the 1500s, when an unknown printer took...</p>
+                  <a href="#" class="btn btn-default">Read More</a>
+                </div>
+              </div>
+              <div class="col-md-3 col-md-6 col-xs-12">
+                <div class="widget">
+                  <div class="widget-title">
+                    <h4>Recent Tweets</h4>
+                    <hr>
+                  </div>
+                  <div class="twitter-widget">
+                    <ul class="latest-tweets">
+                      <li>
+                        <p><a href="#" title="">@Mark</a> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                          Integer lorem quam.</p>
+                        <span>2 hours ago</span>
+                      </li>
+                      <li>
+                        <p><a href="#" title=""></a> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
+                          lorem quam.</p>
+                        <span>2 hours ago</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 col-md-6 col-xs-12">
+                <div class="widget">
+                  <div class="widget-title">
+                    <h4>Popular Courses</h4>
+                    <hr>
+                  </div>
+                  <ul class="popular-courses">
+                    <li>
+                      <a href="single-course.html" title=""><img class="img-thumbnail"
+                          src="https://dl.dropbox.com/s/eywmw95kay9rb8m/xservice_01.png.pagespeed.ic.2iuJZT3CaV.png" alt=""></a>
+                    </li>
+                    <li>
+                      <a href="single-course.html" title=""><img class="img-thumbnail"
+                          src="https://dl.dropbox.com/s/b2li1mxs38nq009/xservice_02.png.pagespeed.ic.c6RThoxSWC.png" alt=""></a>
+                    </li>
+                    <li>
+                      <a href="single-course.html" title=""><img class="img-thumbnail"
+                          src="https://dl.dropbox.com/s/yarmxjywy86vyld/xservice_03.png.pagespeed.ic.E_Ew4wn4ZP.png" alt=""></a>
+                    </li>
+                    <li>
+                      <a href="single-course.html" title=""><img class="img-thumbnail"
+                          src="https://dl.dropbox.com/s/yarmxjywy86vyld/xservice_03.png.pagespeed.ic.E_Ew4wn4ZP.png" alt=""></a>
+                    </li>
+                    <li>
+                      <a href="single-course.html" title=""><img class="img-thumbnail"
+                          src="https://dl.dropbox.com/s/yarmxjywy86vyld/xservice_03.png.pagespeed.ic.E_Ew4wn4ZP.png" alt=""></a>
+                    </li>
+                    <li>
+                      <a href="single-course.html" title=""><img class="img-thumbnail"
+                          src="https://dl.dropbox.com/s/yarmxjywy86vyld/xservice_03.png.pagespeed.ic.E_Ew4wn4ZP.png" alt=""></a>
+                    </li>
+                    <li>
+                      <a href="single-course.html" title=""><img class="img-thumbnail"
+                          src="https://dl.dropbox.com/s/yarmxjywy86vyld/xservice_03.png.pagespeed.ic.E_Ew4wn4ZP.png" alt=""></a>
+                    </li>
+                    <li>
+                      <a href="single-course.html" title=""><img class="img-thumbnail"
+                          src="https://dl.dropbox.com/s/yarmxjywy86vyld/xservice_03.png.pagespeed.ic.E_Ew4wn4ZP.png" alt=""></a>
+                    </li>
+                    <li>
+                      <a href="single-course.html" title=""><img class="img-thumbnail"
+                          src="https://dl.dropbox.com/s/yarmxjywy86vyld/xservice_03.png.pagespeed.ic.E_Ew4wn4ZP.png" alt=""></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-3 col-md-6 col-xs-12">
+                <div class="widget">
+                  <div class="widget-title">
+                    <h4>Contact Details</h4>
+                    <hr>
+                  </div>
+                  <ul class="contact-details">
+                    <li><i class="fa fa-link"></i> <a href="#">www.yoursite.com</a></li>
+                    <li><i class="fa fa-envelope"></i> <a href="mailto:support@witsmind.com">support@witsmind.com</a></li>
+                    <li><i class="fa fa-phone"></i> +256 755 710958</li>
+                    <li><i class="fa fa-fax"></i> +256 701 618576</li>
+                    <li><i class="fa fa-home"></i> Kanjokya Street, Kanjokya Building, Kampala.</li>
+                  </ul>
+                </div>
+              </div>
             </div>
-          % endif
-        </div>
-      </div>
-    </footer>
-  </div>
-% else:
-  <div class="wrapper wrapper-footer">
-    <footer id="footer-openedx" class="grid-container"
-      ## When rendering the footer through the branding API,
-      ## the direction may not be set on the parent element,
-      ## so we set it here.
-      % if bidi:
-        dir=${bidi}
-      % endif
-    >
-      <div class="colophon">
-        <nav class="nav-colophon" aria-label="${_('About')}">
-          <ol>
-              % for item_num, link in enumerate(footer['navigation_links'], start=1):
-              <li class="nav-colophon-0${item_num}">
-                <a id="${link['name']}" href="${link['url']}">${link['title']}</a>
-              </li>
-              % endfor
-          </ol>
-        </nav>
+          </div>
+        </footer>
+        <section class="copyright">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6 text-left">
+                <p><a target="_blank" href="https://www.templateshub.net">Witmind Company</a></p>
+              </div>
+              <div class="col-md-6 text-right">
+                <ul class="list-inline">
+                  <li><a href="https://www.openedx.com">Powered by OpenEdx</a></li>
+                  <li><a href="https://witsmind.com">Privacy Policy</a></li>
+                  <li><a href="https://witsmind.com">Sitemap</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
 
-        % if context.get('include_language_selector', footer_language_selector_is_enabled()):
-            <%include file="${static.get_template_path('widgets/footer-language-selector.html')}"/>
-        % endif
-
-        <div class="wrapper-logo">
-          <p>
-            <a href="/">
-              ## The default logo is a placeholder.
-              ## You can either replace this link entirely or update
-              ## the FOOTER_ORGANIZATION_IMAGE in Django settings.
-              ## If you customize FOOTER_ORGANIZATION_IMAGE, then the image
-              ## can be included in the footer on other sites
-              ## (e.g. a blog or marketing front-end) to provide a consistent
-              ## user experience.  See the branding app for details.
-              <img alt="${_('organization logo')}" src="${footer['logo_image']}">
-            </a>
-          </p>
-        </div>
-
-        ## Site operators: Please do not remove this paragraph! This attributes back to edX and makes your acknowledgement of edX's trademarks clear.
-          <p class="copyright">${footer['copyright']}
-              % if icp_license_info.get('icp_license'):
-                ${u" | {text}".format(text=icp_license_info.get('text'))}
-                <a href="${icp_license_info.get('icp_license_link', '#')}">
-                    ${u" {icp}".format(icp=icp_license_info.get('icp_license'))}
-                </a>
-              % endif
-          </p>
-
-        <nav class="nav-legal" aria-label="${_('Legal')}">
-          <ul>
-            % for item_num, link in enumerate(footer['legal_links'], start=1):
-              <li class="nav-legal-0${item_num}">
-                <a href="${link['url']}">${link['title']}</a>
-              </li>
-            % endfor
-            <li><a href="${footer['edx_org_link']['url']}">${footer['edx_org_link']['text']}</a></li>
-          </ul>
-        </nav>
-      </div>
-
-      ## Please leave this link and use one of the logos provided
-      ## The OpenEdX link may be hidden when this view is served
-      ## through an API to partner sites (such as marketing sites or blogs),
-      ## which are not technically powered by OpenEdX.
-      % if not hide_openedx_link:
-      <div class="footer-about-openedx">
-        <p>
-          <a href="${footer['openedx_link']['url']}">
-            <img src="${footer['openedx_link']['image']}" alt="${footer['openedx_link']['title']}" width="140" />
-          </a>
-        </p>
-      </div>
-      % endif
-    </footer>
-  </div>
-% endif
-% if include_dependencies:
-  <%static:js group='base_vendor'/>
-  <%static:css group='style-vendor'/>
-  <%include file="widgets/segment-io.html" />
-  <%include file="widgets/segment-io-footer.html" />
-% endif
-% if footer_css_urls:
-  % for url in footer_css_urls:
-    <link rel="stylesheet" type="text/css" href="${url}"></link>
-  % endfor
-% endif
